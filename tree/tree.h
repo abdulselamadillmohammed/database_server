@@ -38,3 +38,10 @@ struct s_leaf {
 };
  
 typedef struct s_leaf Leaf;
+
+union u_tree { 
+    Node n;
+    Leaf l;
+};
+
+typedef union u_tree Tree;
