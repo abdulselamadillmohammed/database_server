@@ -10,20 +10,21 @@
 #include <assert.h>
 #include <errno.h>
 
-
-#define TagRoot 
-#define TagNode
-#define TagLeaf
+#define TagRoot  0x01
+#define TagNode  0x02
+#define TagLeaf  0x04
 
 typedef unsigned int int32;
 typedef unsigned short int int16;
 typedef unsigned char int8;
+
 typedef unsigned char Tag;
 
 
 
 // Node structure
 struct s_node {
+    Tag tag; 
     struct s_node *north; // upward link, ie linked list
     struct s_node *west;
     struct s_leaf *east; // Notice datatype difference 
@@ -42,7 +43,7 @@ struct s_leaf {
     int8 key[128];
     int8 *value;
     int16 size;
-};
+}; 
  
 typedef struct s_leaf Leaf;
 
