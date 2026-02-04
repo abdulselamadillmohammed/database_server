@@ -1,3 +1,6 @@
+flags=-Wall -o2 -std c2x
+ldflags=
+
 all: tree
 
 tree: tree.o
