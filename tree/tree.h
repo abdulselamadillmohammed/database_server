@@ -15,12 +15,10 @@ typedef unsigned int int32;
 typedef unsigned short int int16;
 typedef unsigned char int8;
 
-typedef struct s_node Node;
-
 
 // Node structure
 struct s_node {
-    struct u_tree *north; // upward link, ie linked list
+    struct s_node *north; // upward link, ie linked list
     struct s_node *west;
     struct s_leaf *east; // Notice datatype difference 
 
@@ -29,5 +27,14 @@ struct s_node {
 
 };
 
+typedef struct s_node Node;
 
-
+struct s_leaf { 
+    union u_tree *west;
+    struct s_leaf *east;
+    int8 key[128];
+    int8 *value;
+    int16 size;
+};
+ 
+typedef struct s_leaf Leaf;
