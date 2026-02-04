@@ -11,9 +11,15 @@
 #include <errno.h>
 
 
+#define TagRoot 
+#define TagNode
+#define TagLeaf
+
 typedef unsigned int int32;
 typedef unsigned short int int16;
 typedef unsigned char int8;
+typedef unsigned char Tag;
+
 
 
 // Node structure
@@ -29,7 +35,8 @@ struct s_node {
 
 typedef struct s_node Node;
 
-struct s_leaf { 
+struct s_leaf {
+    Tag tag; 
     union u_tree *west;
     struct s_leaf *east;
     int8 key[128];
