@@ -71,7 +71,6 @@ Leaf *find_last_linear(Node *parent){
 
 Leaf *create_leaf(Node *parent, int8 *key, int8 *value,int16 count){
     Leaf *l, *new;
-    Node *n;
     int16 size;
 
     assert(parent);
@@ -98,15 +97,33 @@ Leaf *create_leaf(Node *parent, int8 *key, int8 *value,int16 count){
     assert(new ->value);
     strncpy((char *)new->value, (char *)value, count);
     new->size = count;
-    return l;
+    return new;
 }
 
 int main(){
     Node *n, *n2;
+    Leaf *l1, *l2;
+    int8 *key, *value;
+    int16 size;
     n = create_node((Node *)&root, (int8 *)"/Users");
     assert(n);
     n2 = create_node(n, (int8 *)"/Users/login"); 
     assert(n2);
+
+    key = (int8 *)"jonas";
+    value = (int8 *)"abc77301aa";
+    size = (int16)strlen((char *)value);
+    l1 = create_leaf(n2, key,value, size);
+    assert(l1);
+
+
+    printf("%s\n", l1->value);
+
+    key = (int8 *)"john";
+    value = (int8 *)"aa0349453";
+    size = (int16)strlen(char *)value);
+    l2 = create_leaf(n2, key, value, size);
+    assert(l2); 
 
     printf("%p %p\n", n, n2);
     free(n2);
