@@ -69,10 +69,10 @@ Leaf *find_last_linear(Node *parent){
     return l;
 }
 
-Leaf *create_leaf(Node *parent, int8 *key, int16 count){
+Leaf *create_leaf(Node *parent, int8 *key, int8 *value,int16 count){
     Leaf *l, *new;
     Node *n;
-    size16 size;
+    int16 size;
 
     assert(parent);
     l = find_last(parent);
@@ -89,8 +89,8 @@ Leaf *create_leaf(Node *parent, int8 *key, int16 count){
     zero((int8 *)new, size);
     new->tag = TagLeaf;
     new->west = (!l) ? 
-        (Node *)parent : 
-        (Leaf *)l;
+        (Tree *)parent : 
+        (Tree *)l;
 
     strncpy((char *)new->key, (char *)key, 127);
     new->value = (int8 *)malloc(count);
