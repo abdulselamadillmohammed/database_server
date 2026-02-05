@@ -10,9 +10,11 @@
 #include <assert.h>
 #include <errno.h>
 
-#define TagRoot  0x01
-#define TagNode  0x02
-#define TagLeaf  0x04
+#define TagRoot  1
+#define TagNode  2
+#define TagLeaf  4
+
+#define find_last(x)     find_last_linear(x)
 
 typedef unsigned int int32;
 typedef unsigned short int int16;
