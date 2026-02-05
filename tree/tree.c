@@ -28,6 +28,18 @@ struct s_node {
 */
 
 
+
+Node *create_node(Node *parent, int8 *path){
+    Node *n;
+    int16 size;
+
+    assert(parent);
+    size = sizeof(struct s_node);
+    n = (Node *)malloc(size);
+    zero((int8 *)n, size);
+}
+
+
 int main(){
     printf("%p\n", (void *)&root);
     return 0;
