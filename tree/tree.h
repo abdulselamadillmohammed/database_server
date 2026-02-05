@@ -10,11 +10,20 @@
 #include <assert.h>
 #include <errno.h>
 
+typedef void* Nullptr;
+Nullptr nullptr = 0 ;
+
+
 #define TagRoot  1
 #define TagNode  2
 #define TagLeaf  4
 
 #define find_last(x)     find_last_linear(x)
+#define reterr(x) \
+    errno = (x);
+    return nullptr;
+
+
 
 typedef unsigned int int32;
 typedef unsigned short int int16;
