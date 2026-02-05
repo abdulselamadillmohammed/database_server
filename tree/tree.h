@@ -20,7 +20,7 @@ Nullptr nullptr = 0 ;
 
 #define find_last(x)     find_last_linear(x)
 #define reterr(x) \
-    errno = (x);
+    errno = (x); \
     return nullptr;
 
 

@@ -95,8 +95,10 @@ Leaf *create_leaf(Node *parent, int8 *key, int16 count){
     strncpy((char *)new->key, (char *)key, 127);
     new->value = (int8 *)malloc(count);
     zero(new->value, count);
-    assert(new->value);
+    assert(new ->value);
     strncpy((char *)new->value, (char *)value, count);
+    new->size = count;
+    return l;
 }
 
 int main(){
