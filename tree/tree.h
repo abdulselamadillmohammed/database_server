@@ -18,10 +18,12 @@ Nullptr nullptr = 0 ;
 #define TagNode  2
 #define TagLeaf  4
 
+#define NoError  0
+
 #define find_last(x)     find_last_linear(x)
 #define reterr(x) \
     errno = (x); \
-    return nullptr;
+    return nullptr
 
 
 
