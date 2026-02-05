@@ -56,6 +56,14 @@ Node *create_node(Node *parent, int8 *path){
 
 
 int main(){
-    printf("%p\n", (void *)&root);
+    Node *n, *n2;
+    n = create_node(&root, "/Users");
+    assert(n);
+    n2 = create_node(n, "/Users/login");
+    assert(n2);
+
+    printf("%p %p\n", n, n2);
+    free(n2);
+    free(n);
     return 0;
 }
