@@ -51,5 +51,4 @@ union u_tree {
     Node n;
     Leaf l;
 };
-
 typedef union u_tree Tree;
